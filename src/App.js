@@ -1,10 +1,18 @@
 import React from 'react';
 import './App.css';
+import './assets/styles/index.scss'
+import { Header, Footer } from './components';
+import Dashboard from './pages/Dashboard';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      test
+      <Header />
+      test {process.env.REACT_APP_TV_MAZE_API_URL_BASE}
+
+      <Dashboard />
+
+      <Footer />
     </div>
   );
 }

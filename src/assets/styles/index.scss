@@ -1,0 +1,18 @@
+@import "_variables";
+
+body{
+   font-family: $open-sans;    
+    font-size: $font-size-m;
+}
+
+header{
+    padding: $padding-m;
+    color: $secondary-color;
+    background-color: $primary-background-color;
+}
+
+footer{
+    margin: $padding-m;
+    color: $primary-color;
+    background-color: $primary-background-color;
+}
