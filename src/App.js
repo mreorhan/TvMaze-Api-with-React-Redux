@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import About from './pages/About';
 import Movie from './pages/Movie';
 import './assets/styles/index.scss'
+import './assets/styles/responsive.scss'
 
 const App = () => {
   return (
