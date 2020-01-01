@@ -19,8 +19,7 @@ class Dashboard extends React.Component {
         return (
             <div className="container">
                 <h2>Batman Tv Shows</h2>
-                {movies && <MovieList items={movies} isLoading={loading} />}
-                {error && <div> Something went wrong</div>}
+                <MovieList items={movies} isLoading={loading} hasError={error} />
             </div>
         )
     }
