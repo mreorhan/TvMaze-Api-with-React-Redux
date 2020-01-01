@@ -5,22 +5,26 @@ import './assets/styles/index.scss'
 import { Header, Footer } from './components';
 import Dashboard from './pages/Dashboard';
 import About from './pages/About';
+import { Provider } from 'react-redux';
+import { store } from './store'
 
 const App = () => {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Dashboard />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Header />
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/">
+              <Dashboard />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </Provider>
     </div>
   );
 }

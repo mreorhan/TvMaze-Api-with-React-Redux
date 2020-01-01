@@ -1,29 +1,37 @@
 import React from 'react';
 import { MovieList } from '../components';
+import { connect } from 'react-redux';
+import getBatmanMovies from '../redux/actions/movieActions';
+import { bindActionCreators } from 'redux';
+import { getMovies, getMoviesLoading, getMoviesError } from '../redux/reducers/movieReducer';
 
-export default class Dashboard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            movies: []
-        }
-    }
+class Dashboard extends React.Component {
 
     componentDidMount = () => {
-        fetch(process.env.REACT_APP_TV_MAZE_API_URL_BASE + "/search/shows?q=batman")
-            .then(movies => movies.json())
-            .then(movies => this.setState({ movies }))
+        this.props.getBatmanMovies();
     }
 
     render() {
-        const { movies } = this.state;
-        const movieList = movies && movies.map((movie, index) => {
-            return (<MovieList items={movie.show.name} />)
-        })
+        const { loading, movies, error } = this.props;
+
         return (
             <div>
-                {movieList}
+                {loading && <div> Loading...</div>}
+                {JSON.stringify(movies)}
+                {error && <div> Something went wrong</div>}
             </div>
         )
     }
 }
+
+const mapStateToProps = state => ({
+    loading: getMoviesLoading(state),
+    movies: getMovies(state),
+    error: getMoviesError(state)
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getBatmanMovies
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
