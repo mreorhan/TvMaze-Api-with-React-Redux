@@ -1,31 +1,32 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-import './assets/styles/index.scss'
+import { Provider } from 'react-redux';
+import { store } from './store'
 import { Header, Footer } from './components';
 import Dashboard from './pages/Dashboard';
 import About from './pages/About';
-import { Provider } from 'react-redux';
-import { store } from './store'
+import Movie from './pages/Movie';
+import './assets/styles/index.scss'
 
 const App = () => {
   return (
-    <div className="App">
-      <Provider store={store}>
-        <Router>
-          <Header />
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/">
-              <Dashboard />
-            </Route>
-          </Switch>
-          <Footer />
-        </Router>
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/movie/:id">
+            <Movie />
+          </Route>
+          <Route path="/">
+            <Dashboard />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 
