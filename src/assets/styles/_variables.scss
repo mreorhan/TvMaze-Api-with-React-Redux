@@ -6,15 +6,23 @@
 $palette: (
   'primary': #e48c2d, 
   'dark-gray': #3c3c3c,
-  'link-color':#fafafa,
-  'secondary-color':fade-in(rgba(#e1d7d2, 0.5), 0.4)
+  'link-color-lighten':#fafafa,
+  'link-color-darken':#3c3c3c,
+  'secondary-color':#e1d7d2
 );
 
 //fonts
-$font-size-m:14px;
+$font-size-sm:12px;
+$font-size-md:14px;
 $font-stack:Arial,Helvetica, sans-serif;
 $open-sans: 'Open Sans', sans-serif;
 
 //others
-$padding-m:15px;
-$margin-m:15px;
+$padding-md:15px;
+
+$margin-sm:10px;
+$margin-md:15px;
+$border-radius-md:8px;
+
+$size-md:50px;
+$size-lg:300px;

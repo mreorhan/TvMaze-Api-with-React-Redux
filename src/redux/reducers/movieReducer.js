@@ -35,6 +35,6 @@ const movieReducer = (state = initialState, action) => {
 
 export default movieReducer;
 
-export const getMovies = state => state.movieReducer.movies;
+export const getMovies = state => state.movieReducer.movies.movies;
 export const getMoviesLoading = state => state.movieReducer.loading;
 export const getMoviesError = state => state.movieReducer.error;

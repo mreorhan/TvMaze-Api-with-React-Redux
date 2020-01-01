@@ -8,17 +8,18 @@ import { getMovies, getMoviesLoading, getMoviesError } from '../redux/reducers/m
 class Dashboard extends React.Component {
 
     componentDidMount = () => {
-        this.props.getBatmanMovies();
+        const { getBatmanMovies, movies } = this.props;
+        if (!movies)
+            getBatmanMovies();
     }
 
     render() {
         const { loading, movies, error } = this.props;
 
         return (
-            <div>
-                {loading && <div> Loading...</div>}
-                {JSON.stringify(movies)}
-                {error && <div> Something went wrong</div>}
+            <div className="container">
+                <h2>Batman Tv Shows</h2>
+                <MovieList items={movies} isLoading={loading} hasError={error} />
             </div>
         )
     }
