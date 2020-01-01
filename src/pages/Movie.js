@@ -15,7 +15,7 @@ class Movie extends React.Component {
     render() {
         const { id } = this.props.match.params;
         const { loading, movies, error } = this.props;
-        const movie = movies ? movies.find(movie => { return movie.show.id == id }) : null;
+        const movie = movies ? movies.find(movie => { return movie.show.id.toString() === id }) : null;
         const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
         return (
@@ -23,7 +23,7 @@ class Movie extends React.Component {
                 {movie &&
                     <div className="movie-container">
                         <div className="movie-poster">
-                            <img src={movie.show.image.medium} className="poster-large" />
+                            <img alt={movie.show.name} src={movie.show.image.medium} className="poster-large" />
                         </div>
                         <div className="movie-details">
                             <span className="movie-title">{movie.show.name}</span>
@@ -34,7 +34,6 @@ class Movie extends React.Component {
                             <span className="movie-genres">Genres: {movie.show.genres.map(genre => genre + ", ")}</span>
                             <span className="movie-update-date">Updated date: {new Date(movie.show.updated).toLocaleDateString('en-US', dateOptions)}</span>
                         </div>
-                        {/* {JSON.stringify(movie.show)} */}
                     </div>
                 }
             </div>
