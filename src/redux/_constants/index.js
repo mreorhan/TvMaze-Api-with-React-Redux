@@ -1,0 +1,5 @@
+export const movieConstants = {
+    MOVIES_PENDING: "MOVIES_PENDING",
+    MOVIES_SUCCESS: "MOVIES_SUCCESS",
+    MOVIES_ERROR: "MOVIES_ERROR"
+}
