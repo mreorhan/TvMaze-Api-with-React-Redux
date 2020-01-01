@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MovieList = (props) => {
     return (
@@ -6,6 +7,10 @@ const MovieList = (props) => {
             {props.items}
         </div>
     )
+}
+
+MovieList.propTypes = {
+    items: PropTypes.array.isRequired,
 }
 
 export default MovieList;
