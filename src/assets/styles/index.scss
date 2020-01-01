@@ -7,12 +7,27 @@ body{
 
 header{
     padding: $padding-m;
-    color: $secondary-color;
-    background-color: $primary-background-color;
+    color:map-get($palette, secondary-color) ;
+    background-color: map-get($palette, dark-gray);
 }
 
 footer{
     margin: $padding-m;
-    color: $primary-color;
-    background-color: $primary-background-color;
+    color: map-get($palette, primary);
+    background-color: map-get($palette, dark-gray);
 }
+
+a {
+    color:map-get($palette, link-color);
+    text-decoration: none;
+}
+
+
+/* reset */
+li,ul{
+    display: block;
+    margin: 0;
+    padding: 0;
+
+}
+/* reset */
